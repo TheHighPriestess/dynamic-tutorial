@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dynamically load content using jQuery</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <meta name="description" content="A personal collection of recipes">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/prism.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/loader.js"></script>
+		<script type="text/javascript" src="js/prism.js"></script>  
+		<style type="text/css"></style>
+	</head>
+	<body>
+		<div class="page">
+				<div class="blog">
+					<div class="main">
+						<h1>dynamically load content with jquery</h1>
+						<p>Click on the titles to the three Shakespeare plays and notice that the quote on the right changes even though the page doesn't reload.</p>
+						<div class="article">
+						<ul>	
+							<li><a href="henry5.html">Henry V</a></li>
+							<li><a href="msnd.html">A Midsummer's Night Dream</a></li>
+							<li><a href="kinglear.html">King Lear</a></li>
+						</ul>
+							
+							
+							<p>The content is being loaded dynamically using just a wee bit of jQuery.</p>
+							<h2>Here's how it's done:</h2>  
+							<p>First of all you're going to need to install node.js and NPM:</p>
+							<p><a href="http://blog.teamtreehouse.com/install-node-js-npm-windows">How to install node.js and NPM on Windows</a></p>
+							<p><a href="http://blog.teamtreehouse.com/install-node-js-npm-mac">How to install node.js and NPM on a Mac</a></p>
+							<p>Follow the instructions on the Node website.  This will install the node package manager(NPM). Once you’ve done that go to the command line and type…</p>
+							<pre><code class="language-markup"><p>npm install http-server -g</p></code></pre>
+							<p>...to install the server.</p>
+							<p>Ok, now let's create a few simple HTML files and the jQuery to make this work. Place the following code in your index.html file:</p>
+							<pre><code class="language-markup">&lt;ul&gt;	
+&lt;li&gt;&lt;a href="home.html"&gt;home&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="about.html"&gt;about&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="contact.html"&gt;contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id="content"&gt;&lt;/div&gt;</code></pre>
+							<p>Don't forget to include a link in your index.html file to your jquery-2.1.3.min.js (or whatever version they're on).</p>
+							<p>Now create three html files named "home.html", "about.html", and "contact.html".  In each file place the word "home", "about", or "contact". Example</p>
+							<pre><code class="language-markup">&lt;p&gt;home&lt;/p&gt;</code></pre>
+							<p>That's it.  You don't need any other markup in the files. Just one line in each.</p>
+							<p>Now, the jQuery that makes it all happen.  Create a new file and save it as loader.js(or any other name you want, of course).  Place the following code inside it:</p>
+							<pre><code class="language-javascript">$(document).ready(function(){
+    $("#content").load("home.html");
+
+    $("a").click(function() {
+    var page = $(this).attr("href");
+    $("#content").load(page);
+    return false;
+    });
+});</code></pre>
+							<p>When the page loads, home.html will be loaded into the div with the id of "content". When a link is clicked the href attribute is saved in the variable "page" and then loaded into the div with the id of "content".</p>
+							<p>Ok, so on index.html are three links to home.html, about.html, and contact.html...plus the empty div with an id of "content". Your index.html should also have a link to jQuery and a link to loader.js which contains the code shown above.</p>  
+							<p>Now, using the command line, navigate to the folder where you have saved all the files and type…</p>
+							<pre><code class="language-markup"><p>http-server</p></code></pre>
+							<p>…and it will tell you where it’s hosted.  (It will usually be localhost:8080.) Open up your browser and type that into the url area.</p>
+							<p>If you make changes, refresh, and then don't see them try this: Open up Chrome’s Developer Tools, click on the Network tab and check “Disable cache”.  If that doesn't work try right clicking on the refresh button and selecting “empty cache and hard reload”.  This only works if you have Dev Tools open though.</p>
+							<p>Have fun!</p>
+							<hr>
+						
+							
+
+							
+						</div><!--end .article-->
+					</div><!--end .main-->
+					<div class="recipes">
+							<div class="recipe-list">
+								<img src="shakespeare.jpg" alt="illustration of william shakespeare">
+								
+
+							<div id="content"></div>
+							</div><!--end .recipe-list-->
+						</div><!--end .recipes-->
+				</div><!--end .blog-->
+		</div><!--end .page-->
+	</body>
+
+	
+	
+</html>

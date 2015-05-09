@@ -1,0 +1,156 @@
+body {
+	margin: 70px;
+	font: 100%;
+	background-color: #fff;
+	color: #212121;
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+p {
+	font-size: 1em;
+	margin-bottom: 15px;
+	line-height: 1.4em;
+}
+
+ul {
+	margin-bottom: 10px;
+}
+
+li {
+	padding-bottom: 6px;
+}
+
+li a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #212121;
+}
+
+h1, h2 {
+	font-weight: 700;
+	color: #212121;
+}
+
+h1 {
+	font-size: 2.3em; 
+	margin-bottom: 20px;
+	letter-spacing: 1px;
+}
+
+h2 {
+	font-size: 1.5em;
+	margin-bottom: 20px;
+	letter-spacing: 2px;
+}
+
+hr {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25px;
+	margin-top: 25px;
+	color: #4E3F30;
+	width: 80%;
+}
+
+
+img {
+	margin-bottom: 30px;
+}
+
+/****** CENTERS THE PAGE CONTENT ******/
+
+.page {
+	margin: 36px auto;
+	width: 90%;
+}
+
+.blog {
+	margin: 0 auto 53px;
+	width: 93.75%;
+}
+
+/****** EXPLANATION ON THE RIGHT ******/
+
+.blog .main {
+	float: left;
+	width: 62.8888889%;
+}
+
+/****** RECIPE INGREDIENTS AND INSTRUCTIONS ON THE LEFT ******/
+
+.blog .recipes { 
+	float: right;
+	width: 36.7777778%;
+}
+
+.recipe-list {
+	margin-left: 35px;
+}
+
+.recipe-list a {
+	text-decoration: none;
+}
+
+/****** 'BACK TO RECIPE LIST' ******/
+
+.boldlink {
+	text-decoration: none;
+	font-weight: bold;
+	color: #0CA5B0;
+}
+
+a.boldlink:hover {
+	color: #4E3F30;
+}
+
+/****** LINKS ******/
+
+a:hover {
+	color: #0CA5B0;
+	font-weight: bold;
+}
+
+a:visited {
+	color: #0CA5B0;
+}
+
+
+
+/****** MEDIA QUERIES ******/
+
+@media screen and (max-width: 768px) {
+	
+	body {
+		margin: 20px;
+	}
+
+/****** STACKS THE TWO COLUMNS ******/	
+
+	.blog .main,
+	.blog .recipes {
+		float; none;
+		width: auto;
+	}
+
+	h1 {
+		font-size: 2em;
+		text-align: left;
+	}
+
+	.article p {
+		font-size: 1em;
+	}
+
+	.recipes p {
+		font-size: 1em;
+	}
+
+	.recipes h2 {
+		font-size: 1.35em;
+	}
+
+	.recipe-list {
+	margin-left: 0px;
+}
+}
